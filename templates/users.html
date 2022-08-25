@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <body style="background-color:powderblue;"></body>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/delete">
+<div align="center"><p>  <h1> User Information</p></h1> </div>
+  
+
+
+</body>
+</html>
+<form method="POST" action="/delete">
+
+<table border = 4>
+  <thead>
+    <tr>
+      <th style="width:10%"><div align="center"><p>  <h1> ID</p></h1> </div></th>
+      <th style="width:10%"><div align="center"><p>  <h1> Username</p></h1> </div></th>
+      <th style="width:60%"><div align="center"><p>  <h1> Encrypted Password</p></h1> </div></th>
+      <th style="width:60%"><div align="center"><p>  <h1> e-Mail</p></h1> </div></th>
+      <th style="width:60%"><div align="center"><p>  <h1> Delete</p></h1> </div></th>
+    </tr>
+  </thead>
+  {% for user in userInformation %}
+  <tr>
+    <td> <div align="center"><p> {{user[0]}}</p></div> </td>
+    <td> <div align="center"><p> {{user[1]}}</p></div> </td>
+    <td> <div align="center"><p> {{user[2]}}</p></div> </td>
+    <td> <div align="center"><p> {{user[3]}}</p></div> </td>
+    <td> <input type="checkbox" name="mycheckbox" value="{{user[0]}}"/> </td>
+  </tr>
+  {% endfor %}
+  <input type="submit" value="Delete All Selected" class="btn btn-primary">  
+</table>
