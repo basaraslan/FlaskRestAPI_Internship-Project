@@ -4,7 +4,7 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import hashlib
 from datetime import timedelta
-import re
+
 
 
 
@@ -47,8 +47,8 @@ def login():
             session.permanent=True
             app.permanent_session_lifetime=timedelta(minutes=1)
             return redirect(url_for('home'))
-          
-            return render_template("index.html", message=message)
+
+            
         else:
             message = 'Incorrect username or password!'
     return render_template("index.html",message=message)
@@ -90,7 +90,7 @@ def register():
         cursor_email.execute( 'SELECT * FROM usertable WHERE email = % s', (email, ))
         # Fetch one record and return result
         user = cursor.fetchone()
-        print(type(user))
+    
         # If account exists in usertable table in our database
         
         if user:
@@ -151,15 +151,10 @@ def users():
         return render_template("users.html",userInformation=userInformation)
 
     else:
-        return "there is no user logged in yet!"
+     return "there is no user logged in yet!"
 
  else:
-    return "you have to logged-in first to see users table"
-
-
-
-
-
+    return "you have to login first to see users table"
 
 
 
@@ -170,4 +165,4 @@ def error(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
